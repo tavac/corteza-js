@@ -15,7 +15,7 @@ interface Headers {
 
 interface Ctor {
   baseURL?: string;
-  accessTokenFn?: () => string | undefined
+  accessTokenFn?: () => string | undefined;
   headers?: Headers;
 }
 
@@ -29,6 +29,7 @@ interface ExtraConfig {
 }
 
 function stdResolve (response: AxiosResponse<CortezaResponse>): KV|Promise<never> {
+  console.log('stdResolve response', response)
   if (response.data.error) {
     return Promise.reject(response.data.error)
   } else {
