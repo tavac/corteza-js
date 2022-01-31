@@ -1,18 +1,3 @@
-<h1 align="center">
-  <img width="300px" src="https://github.com/cortezaproject/corteza-js/raw/2021.9.x/.github/assets/corteza_logo.svg" />
-  <br />
-  <p>Corteza JS</p>
-
-  <div align="center">
-
-  [![Latest Version Card](https://img.shields.io/npm/v/@cortezaproject/corteza-js)](https://img.shields.io/npm/v/@cortezaproject/corteza-js)
-  [![Downloads Card](https://img.shields.io/npm/dm/@cortezaproject/corteza-js)](https://img.shields.io/npm/dm/@cortezaproject/corteza-js)
-  [![License Card](https://img.shields.io/github/license/cortezaproject/corteza-js)](https://img.shields.io/github/license/cortezaproject/corteza-js)
-
-
-  </div>
-</h1>
-
 <br />
 
 **Corteza JS** provides the common, reusable logic between different web and Node.JS applications.
