@@ -17,13 +17,13 @@ export interface Capabilities {
 
 export interface Options {
   description: {
-    view: string,
-    edit: string | undefined,
-  },
+    view: string;
+    edit: string | undefined;
+  };
   hint: {
-    view: string,
-    edit: string | undefined,
-  },
+    view: string;
+    edit: string | undefined;
+  };
 }
 
 export const defaultOptions = (): Readonly<Options> => Object.freeze({
@@ -120,7 +120,6 @@ export class ModuleField {
        */
       this.defaultValue = f.defaultValue
         .filter(({ name, value }) => name !== undefined || (value !== undefined && value !== null))
-
     }
 
     if (this.isSystem) {

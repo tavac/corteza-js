@@ -6,7 +6,7 @@ import { Apply } from '../../../../cast'
 const ChartJS = require('chart.js')
 
 export class FunnelChartOptions extends ChartOptions {
-  public labelColumn: string = ''
+  public labelColumn = ''
   public dataColumns: Array<{ name: string; label?: string }> = []
 
   constructor (o?: FunnelChartOptions | Partial<FunnelChartOptions>) {
@@ -21,7 +21,6 @@ export class FunnelChartOptions extends ChartOptions {
     }
   }
 
-  
   getChartConfiguration (dataframes: Array<FrameDefinition>) {
     const config = {
       type: this.type,
@@ -35,7 +34,7 @@ export class FunnelChartOptions extends ChartOptions {
           text: this.title,
         },
         legend: {
-          display: this.showLegend
+          display: this.showLegend,
         },
         responsive: true,
         maintainAspectRatio: false,
@@ -48,7 +47,7 @@ export class FunnelChartOptions extends ChartOptions {
           },
         },
         plugins: {},
-      }
+      },
     }
 
     config.options.plugins = {
@@ -62,9 +61,8 @@ export class FunnelChartOptions extends ChartOptions {
           return e
         },
       },
-      tipper: makeTipper(ChartJS.Tooltip, {})
+      tipper: makeTipper(ChartJS.Tooltip, {}),
     }
-
 
     return config
   }
@@ -132,7 +130,7 @@ export class FunnelChartOptions extends ChartOptions {
             }
 
             if (!localDataframe.rows) {
-              throw new Error(`Local rows not found`)
+              throw new Error('Local rows not found')
             }
 
             // Get row index that matches refValue
@@ -165,4 +163,3 @@ export class FunnelChartOptions extends ChartOptions {
 }
 
 ChartOptionsRegistry.set('funnel', FunnelChartOptions)
-

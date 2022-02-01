@@ -5,7 +5,7 @@ import { makeDataLabel } from '../../../../compose/types/chart/util'
 import moment from 'moment'
 
 export class BasicChartOptions extends ChartOptions {
-  public labelColumn: string = ''
+  public labelColumn = ''
   public dataColumns: Array<{ name: string; label?: string }> = []
 
   constructor (o?: BasicChartOptions | Partial<BasicChartOptions>) {
@@ -30,7 +30,7 @@ export class BasicChartOptions extends ChartOptions {
           text: this.title,
         },
         legend: {
-          display: this.showLegend
+          display: this.showLegend,
         },
         responsive: true,
         maintainAspectRatio: false,
@@ -47,7 +47,7 @@ export class BasicChartOptions extends ChartOptions {
             reverse: true,
           },
         },
-      }
+      },
     }
 
     if (['bar', 'line'].includes(this.type)) {
@@ -82,7 +82,7 @@ export class BasicChartOptions extends ChartOptions {
           },
           ticks: {
             autoSkip: false,
-          }
+          },
         }],
 
         yAxes: [{
@@ -106,7 +106,6 @@ export class BasicChartOptions extends ChartOptions {
         label: this.makeLabel,
       }
     }
-
 
     return config
   }
@@ -140,7 +139,7 @@ export class BasicChartOptions extends ChartOptions {
         let columnIndex = this.getColIndex(localDataframe, name)
 
         // If dataColumn is in localDataframe, then set that value
-        let data = localDataframe.rows.map(r => {
+        const data = localDataframe.rows.map(r => {
           return columnIndex < 0 ? undefined : r[columnIndex]
         })
 
@@ -155,7 +154,7 @@ export class BasicChartOptions extends ChartOptions {
             }
 
             if (!localDataframe.rows) {
-              throw new Error(`Local rows not found`)
+              throw new Error('Local rows not found')
             }
 
             // Get row index that matches refValue
@@ -220,4 +219,3 @@ ChartOptionsRegistry.set('bar', BasicChartOptions)
 ChartOptionsRegistry.set('line', BasicChartOptions)
 ChartOptionsRegistry.set('pie', BasicChartOptions)
 ChartOptionsRegistry.set('doughnut', BasicChartOptions)
-

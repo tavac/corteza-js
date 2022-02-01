@@ -83,7 +83,7 @@ export default class FunnelChart extends BaseChart {
   makeOptions (data: any) {
     const options: any = {
       sort: 'desc',
-      maintainAspectRatio: false
+      maintainAspectRatio: false,
     }
 
     if (this.config.colorScheme) {
@@ -122,7 +122,7 @@ export default class FunnelChart extends BaseChart {
       0,
       false,
     )
-    
+
     return makeDataLabel({
       prefix: labels[index],
       value: percentages[index],

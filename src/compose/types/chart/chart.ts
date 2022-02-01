@@ -182,7 +182,7 @@ export default class Chart extends BaseChart {
 
   private makeTooltip ({ datasetIndex, index }: any, { datasets, labels }: any): any {
     const dataset = datasets[datasetIndex]
-    
+
     const percentages = calculatePercentages(
       [...dataset.data],
       dataset.tooltips.relativePrecision,
@@ -198,13 +198,13 @@ export default class Chart extends BaseChart {
 
   private makeLabel ({ datasetIndex, index }: any, { datasets, labels }: any): any {
     const dataset = datasets[datasetIndex]
-    
+
     const percentages = calculatePercentages(
       [...dataset.data],
       dataset.tooltips.relativePrecision,
       dataset.tooltips.relativeValue,
     )
-    
+
     return makeDataLabel({
       value: percentages[index],
       relativeValue: dataset.tooltips.relativeValue,

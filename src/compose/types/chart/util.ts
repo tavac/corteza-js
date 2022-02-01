@@ -213,7 +213,7 @@ export const makeDataLabel = ({
   if (typeof value === 'object') {
     value = value.y || 0
   }
-  
+
   if (relativeValue) {
     suffix = suffix || '%'
   }
@@ -222,14 +222,14 @@ export const makeDataLabel = ({
 }
 
 export function calculatePercentages (values: number[], relativePrecision: number, relativeValue = false) {
-  let errorRounding: number = 0
+  let errorRounding = 0
   const total = values.reduce((acc: number, cur: number) => acc + cur, 0)
-  let portions = values.map((n: number) => n / total * 100)
+  const portions = values.map((n: number) => n / total * 100)
 
   if (relativeValue) {
     let result = 0
-    return portions.map(v => 
-      (result = Number((v + errorRounding).toFixed(relativePrecision || 2)), errorRounding += v - Number(result), result)
+    return portions.map(v =>
+      (result = Number((v + errorRounding).toFixed(relativePrecision || 2)), errorRounding += v - Number(result), result),
     )
   }
   return values
